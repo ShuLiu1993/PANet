@@ -59,8 +59,6 @@ class mask_rcnn_outputs(nn.Module):
         orphan_in_detectron = []
         return mapping, orphan_in_detectron
 
-        return x
-
     def forward(self, x):
         if not isinstance(x, list):
             x = self.classify(x)
