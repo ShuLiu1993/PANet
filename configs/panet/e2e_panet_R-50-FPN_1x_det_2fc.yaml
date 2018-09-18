@@ -1,0 +1,35 @@
+MODEL:
+  TYPE: generalized_rcnn
+  CONV_BODY: FPN.fpn_ResNet50_conv5_body_bup
+  FASTER_RCNN: True
+NUM_GPUS: 8
+RESNETS:
+  IMAGENET_PRETRAINED_WEIGHTS: 'data/pretrained_model/resnet50_caffe.pth'
+SOLVER:
+  WEIGHT_DECAY: 0.0001
+  LR_POLICY: steps_with_decay
+  BASE_LR: 0.02
+  GAMMA: 0.1
+  MAX_ITER: 90000
+  STEPS: [0, 60000, 80000]
+FPN:
+  FPN_ON: True
+  MULTILEVEL_ROIS: True
+  MULTILEVEL_RPN: True
+  USE_GN: True  # Note: use GN on the FPN-specific layers
+FAST_RCNN:
+  ROI_BOX_HEAD: fast_rcnn_heads.roi_2mlp_head_gn_panet  # Note: this is a Conv GN head
+  ROI_XFORM_METHOD: RoIAlign
+  ROI_XFORM_RESOLUTION: 7
+  ROI_XFORM_SAMPLING_RATIO: 2
+TRAIN:
+  SCALES: (1200,1200,1000,800,600,400)
+  MAX_SIZE: 1400
+  BATCH_SIZE_PER_IM: 512
+  RPN_PRE_NMS_TOP_N: 2000  # Per FPN level
+TEST:
+  SCALE: 1000
+  MAX_SIZE: 1400
+  NMS: 0.5
+  RPN_PRE_NMS_TOP_N: 1000  # Per FPN level
+  RPN_POST_NMS_TOP_N: 1000

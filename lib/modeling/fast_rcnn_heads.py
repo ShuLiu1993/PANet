@@ -388,8 +388,8 @@ class roi_2mlp_head_gn_panet(nn.Module):
         for i in range(num_levels):
             self.fc1.append(nn.Sequential(
                 nn.Linear(dim_in * roi_size**2, hidden_dim), 
-                #nn.GroupNorm(net_utils.get_group_gn(hidden_dim), hidden_dim,
-                #             eps=cfg.GROUP_NORM.EPSILON),
+                nn.GroupNorm(net_utils.get_group_gn(hidden_dim), hidden_dim,
+                             eps=cfg.GROUP_NORM.EPSILON),
                 nn.ReLU(inplace=True)
             ))
         #self.fc1 = nn.Sequential(nn.Linear(dim_in * roi_size**2, hidden_dim), nn.GroupNorm(net_utils.get_group_gn(hidden_dim), hidden_dim,

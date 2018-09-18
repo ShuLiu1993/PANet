@@ -55,6 +55,8 @@ python tools/test_net.py --dataset coco2017 --cfg configs/panet/e2e_panet_R-50-F
  :------------: |:------------: |:------------: |:------: | :-------: | :--------------:| :--------------:
  R-50-PANet (paper) | Faster | 16 | 1x | 39.2 | - | - 
  R-50-PANet | Faster | 16 | 1x | **39.8** | - | [model](https://drive.google.com/file/d/1_ahNQHY3D4mbsMWHR2FwmItBkLwYOrS4/view?usp=sharing) 
+ R-50-PANet-2fc (paper) | Faster | 16 | 1x | 39.0 | - | - 
+ R-50-PANet-2fc | Faster | 16 | 1x | **39.6** | - | [model](https://drive.google.com/file/d/1s-xm8GxHbmnt5M3gOMacXIRMvCGaDeRR/view?usp=sharing) 
  R-50-PANet (paper) | Mask| 16 | 2x | 42.1 | 37.8 | - 
  R-50-PANet | Mask | 16| 2x | **43.1** | **38.3** | [model](https://drive.google.com/file/d/1-pVZQ3GR6Aj7KJzH9nWoRQ-Lts8IcdMS/view?usp=sharing) 
 
